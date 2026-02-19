@@ -43,7 +43,7 @@ class LottoNumberDisplay extends HTMLElement {
                     color: white;
                     font-size: 1.8rem;
                     font-weight: bold;
-                    box-shadow: 0 4px 15px var(--card-shadow-color, rgba(0, 0, 0, 0.2));
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
                 }
             </style>
             <div>${number}</div>
@@ -74,16 +74,16 @@ function displayNumbers(numbers) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-btn');
-    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
 
     // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
-        themeToggleBtn.textContent = '☀️';
+        themeToggleBtn.textContent = '라이트 모드';
     } else {
-        themeToggleBtn.textContent = '🌙';
+        themeToggleBtn.textContent = '다크 모드';
     }
 
     const initialNumbers = generateLottoNumbers();
@@ -96,12 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeToggleBtn.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
-        if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-            themeToggleBtn.textContent = '☀️';
-        } else {
-            localStorage.setItem('theme', 'light');
-            themeToggleBtn.textContent = '🌙';
-        }
+        const isDarkMode = body.classList.contains('dark-mode');
+        
+        themeToggleBtn.textContent = isDarkMode ? '라이트 모드' : '다크 모드';
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     });
 });
