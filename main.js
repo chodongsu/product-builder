@@ -75,12 +75,29 @@ function displayNumbers(numbers) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-btn');
-    
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.textContent = '라이트 모드';
+    }
+
     const initialNumbers = generateLottoNumbers();
     displayNumbers(initialNumbers);
 
     generateBtn.addEventListener('click', () => {
         const newNumbers = generateLottoNumbers();
         displayNumbers(newNumbers);
+    });
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDarkMode = body.classList.contains('dark-mode');
+        
+        themeToggle.textContent = isDarkMode ? '라이트 모드' : '다크 모드';
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     });
 });
