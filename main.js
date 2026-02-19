@@ -43,7 +43,7 @@ class LottoNumberDisplay extends HTMLElement {
                     color: white;
                     font-size: 1.8rem;
                     font-weight: bold;
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                    box-shadow: 0 4px 15px var(--card-shadow-color, rgba(0, 0, 0, 0.2));
                 }
             </style>
             <div>${number}</div>
@@ -52,7 +52,6 @@ class LottoNumberDisplay extends HTMLElement {
 }
 
 customElements.define('lotto-number-display', LottoNumberDisplay);
-
 
 function generateLottoNumbers() {
     const numbers = new Set();
@@ -75,14 +74,16 @@ function displayNumbers(numbers) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-btn');
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
     const body = document.body;
 
-    // Check for saved theme preference
+    // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
-        themeToggle.textContent = '라이트 모드';
+        themeToggleBtn.textContent = '☀️';
+    } else {
+        themeToggleBtn.textContent = '🌙';
     }
 
     const initialNumbers = generateLottoNumbers();
@@ -93,11 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
         displayNumbers(newNumbers);
     });
 
-    themeToggle.addEventListener('click', () => {
+    themeToggleBtn.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
-        const isDarkMode = body.classList.contains('dark-mode');
-        
-        themeToggle.textContent = isDarkMode ? '라이트 모드' : '다크 모드';
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggleBtn.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggleBtn.textContent = '🌙';
+        }
     });
 });

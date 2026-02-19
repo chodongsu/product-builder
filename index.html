@@ -8,15 +8,18 @@
 </head>
 <body>
     <div class="container">
-        <button id="theme-toggle" class="theme-toggle-btn">다크 모드</button>
         <h1>로또 번호 추천</h1>
         <div id="lotto-numbers" class="lotto-numbers"></div>
-        <button id="generate-btn">번호 생성</button>
-        
+        <div class="controls">
+            <button id="generate-btn">번호 생성</button>
+            <button id="theme-toggle-btn">🌙</button>
+        </div>
+
         <div class="contact-section">
             <hr>
             <h3>제휴 문의</h3>
-            <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+            <!-- 아래 action URL의 'YOUR_FORMSPREE_ID_HERE'를 실제 Formspree ID로 변경하세요 -->
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST" class="contact-form">
                 <input type="text" name="name" placeholder="성함" required>
                 <input type="email" name="email" placeholder="이메일" required>
                 <textarea name="message" placeholder="문의 내용" required></textarea>
