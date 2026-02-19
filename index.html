@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 번호 추천</title>
+    <title>로또 번호 추천 - 당첨 확률을 높이는 번호 생성기</title>
+    <meta name="description" content="무작위 알고리즘을 활용한 로또 번호 생성기입니다. 다크 모드 지원 및 제휴 문의 기능을 제공하며, 사용자에게 행운의 번호를 추천합니다.">
+    <meta name="keywords" content="로또, 로또번호추천, 로또생성기, 행운의번호, 다크모드">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5206618896448838"
      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
@@ -14,8 +16,21 @@
         <div id="lotto-numbers" class="lotto-numbers"></div>
         <div class="controls">
             <button id="generate-btn">번호 생성</button>
-            <button id="theme-toggle-btn">🌙</button>
+            <button id="theme-toggle" class="theme-toggle-btn">다크 모드</button>
         </div>
+
+        <!-- 텍스트 콘텐츠 보강 섹션 -->
+        <section class="info-section">
+            <hr>
+            <h2>로또 번호 생성기 사용 가이드</h2>
+            <p>본 생성기는 1부터 45까지의 숫자 중 중복되지 않는 6개의 숫자를 무작위 알고리즘을 통해 추출합니다. 매번 새로운 조합을 생성하여 사용자에게 다양한 선택지를 제공합니다.</p>
+            <h3>당첨 확률을 높이는 팁</h3>
+            <ul>
+                <li><strong>균형 잡힌 조합:</strong> 홀수와 짝수의 비율을 3:3 또는 2:4 정도로 섞는 것이 통계적으로 유리할 수 있습니다.</li>
+                <li><strong>번호대별 분배:</strong> 10번대, 20번대 등 특정 번호대에 치우치지 않게 번호를 선택해 보세요.</li>
+                <li><strong>직전 회차 참고:</strong> 가끔은 직전 회차에 나오지 않았던 미출현 번호를 포함하는 전략도 사용됩니다.</li>
+            </ul>
+        </section>
 
         <div class="contact-section">
             <hr>
@@ -33,24 +48,23 @@
             <h3>댓글</h3>
             <div id="disqus_thread"></div>
             <script>
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                /*
-                var disqus_config = function () {
-                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                */
-                (function() { // DON'T EDIT BELOW THIS LINE
+                (function() {
                 var d = document, s = d.createElement('script');
                 s.src = 'https://product-14.disqus.com/embed.js';
                 s.setAttribute('data-timestamp', +new Date());
                 (d.head || d.body).appendChild(s);
                 })();
             </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </div>
+
+        <footer>
+            <hr>
+            <p>&copy; 2026 로또 번호 추천. All rights reserved.</p>
+            <nav>
+                <a href="privacy.html">개인정보처리방침</a> | 
+                <a href="mailto:admin@example.com">관리자 문의</a>
+            </nav>
+        </footer>
     </div>
     <script src="main.js" type="module"></script>
 </body>

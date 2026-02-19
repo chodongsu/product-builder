@@ -99,21 +99,54 @@ h1 {
     color: #fff;
 }
 
-.contact-section, .comments-section {
+.contact-section, .comments-section, .info-section, footer {
     margin-top: 50px;
     padding-top: 20px;
 }
 
-.contact-section hr, .comments-section hr {
+.contact-section hr, .comments-section hr, .info-section hr, footer hr {
     border: 0;
     height: 1px;
     background: var(--shadow-color);
     margin-bottom: 30px;
 }
 
-.contact-section h3, .comments-section h3 {
-    margin-bottom: 20px;
+.info-section {
+    text-align: left;
+    line-height: 1.6;
+}
+
+.info-section h2, .info-section h3 {
     color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.info-section ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.info-section li {
+    margin-bottom: 10px;
+}
+
+footer {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode footer {
+    color: #aaa;
 }
 
 .contact-form {
